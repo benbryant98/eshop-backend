@@ -52,9 +52,11 @@ router.put("/:id", async (req, res) => {
     where: {
       id: req.params.id,
     },
-  }).catch((err) => {
-    res.status(400).json(err);
-  });
+  })
+    .then(res.status(200).json("Category updated."))
+    .catch((err) => {
+      res.status(400).json(err);
+    });
 });
 
 router.delete("/:id", async (req, res) => {
